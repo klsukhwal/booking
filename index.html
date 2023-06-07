@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flight Booking Site</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Sukhwal</h1>
+        </div>
+        <div class="book-section">
+            <a href="index.html">Flights</a>
+            <a href="hotels.html" target="_blank">Hotels</a>
+            <a href="#">Trains</a>
+            <a href="#">Cabs</a>
+            <a href="#">Bus</a>
+        </div>
+        <div class="login-button">
+            <button onclick="openRegistration()">Login</button>
+        </div>
+    </header>
+    <section class="booking-section">
+        <h2>Book Domestic and International Flight Tickets</h2>
+    </section>
+
+    <section class="flight-booking">
+        <div class="flight-details">
+            <form>
+                <div class="form-group">
+                    <!-- <label for="trip-type">Trip Type:</label> -->
+                    <div class="trip-options">
+                        <label for="one-way" class="option-label">
+                            <input type="radio" id="one-way" name="trip" value="one-way" required onchange="toggleReturnDate()">
+                            <span class="radio-circle"></span>
+                            One Way
+                        </label>
+                        <label for="round-trip" class="option-label">
+                            <input type="radio" id="round-trip" name="trip" value="round-trip" required onchange="toggleReturnDate()">
+                            <span class="radio-circle"></span>
+                            Round Trip
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="origin">From:</label>
+                    <input type="text" id="origin" name="origin" placeholder="Enter origin" onkeyup="showSuggestions(this)" onblur="hideSuggestions()">
+                    <ul id="suggestion-list"></ul>
+                </div>
+
+                <div id="origin-details"></div>
+
+                <div class="form-group">
+                    <label for="destination">Destination:</label>
+                    <input type="text" id="destination" name="destination" placeholder="Enter destination" onkeyup="showSuggestions(this)" onblur="hideSuggestions()">
+                    <ul id="suggestion-list"></ul>
+                </div>
+
+                <div id="destination-details"></div>
+                <div class="form-group">
+                    <label for="departure-date">Departure:</label>
+                    <input type="date" id="departure-date" name="departure-date" placeholder="Select departure date">
+                </div>
+                <div class="form-group" id="return-date-group" style="display: none;">
+                    <label for="return-date">Return:</label>
+                    <input type="date" id="return-date" name="return-date" placeholder="Select return date">
+                </div>
+                <div class="form-group">
+                    <label for="passengers">Passengers:</label>
+                    <input type="number" id="passengers" name="passengers" value="1">
+                </div>
+            </form>
+        </div>
+        <button type="submit">Search Flights</button>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2023 Sukhwal. All rights reserved.</p>
+    </footer>
+
+
+    <!-- <div id="airport-suggestions" class="airport-suggestions"></div> -->
+
+
+    <div class="overlay" id="registration-overlay">
+        <div class="registration-form">
+            <h2>Registration</h2>
+            <form id="registrationForm" onsubmit="registerUser(event)">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <button type="submit">Register</button>
+            </form>
+            <p>Already have an account? <a href="login.php">Login here</a>.</p>
+        </div>
+    </div>
+</body>
+</html>

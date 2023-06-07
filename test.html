@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flight Booking Site</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <style>
+        /* Add your custom CSS styles here */
+        #suggestion-list {
+          display: none;
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+          border: 1px solid #ccc;
+          background-color: #fff;
+          border-radius: 5px;
+          position: absolute;
+          width: 100%;
+        }
+        
+        #suggestion-list li {
+          padding: 8px 16px;
+          cursor: pointer;
+        }
+        
+        #suggestion-list li:hover {
+          background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Sukhwal</h1>
+        </div>
+        <div class="book-section">
+            <a href="#">Flights</a>
+            <a href="#">Hotels</a>
+            <a href="#">Trains</a>
+            <a href="#">Cabs</a>
+            <a href="#">Bus</a>
+        </div>
+        <div class="login-button">
+            <button onclick="openRegistration()">Login</button>
+        </div>
+    </header>
+    <section class="booking-section">
+        <h2>Book Domestic and International Flight Tickets</h2>
+    </section>
+
+    <section class="flight-booking">
+        <div class="flight-details">
+        <form>
+            <div class="form-group">
+                <label for="trip-type">Trip Type:</label>
+                <div class="trip-options">
+                    <label for="one-way" class="option-label">
+                        <input type="radio" id="one-way" name="trip" value="one-way" required>
+                        <span class="radio-circle"></span>
+                        One Way
+                    </label>
+                    <label for="round-trip" class="option-label">
+                        <input type="radio" id="round-trip" name="trip" value="round-trip" required>
+                        <span class="radio-circle"></span>
+                        Round Trip
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="origin">From:</label>
+                <input type="text" id="origin" name="origin" placeholder="Enter origin" onkeyup="showSuggestions(this)" onblur="hideSuggestions()">
+                <ul id="suggestion-list"></ul>
+            </div>
+            <div class="form-group">
+                <label for="destination">Destination:</label>
+                <input type="text" id="destination" name="destination" placeholder="Enter destination">
+            </div>
+            
+            <div class="form-group">
+                <label for="departure-date">Departure:</label>
+                <input type="date" id="departure-date" name="departure-date" placeholder="Select departure date">
+            </div>
+            <div class="form-group" id="return-date-group" style="display: none;">
+                <label for="return-date">Return:</label>
+                <input type="date" id="return-date" name="return-date" placeholder="Select return date">
+            </div>
+            <div class="form-group">
+                <label for="passengers">Passengers:</label>
+                <input type="number" id="passengers" name="passengers" placeholder="Enter number of passengers">
+            </div>
+            <button type="submit">Search Flights</button>
+        </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Flight Booking Site. All rights reserved.</p>
+    </footer>
+
+    <div id="registration-overlay" class="overlay">
+        <div class="registration-form">
+            <h2>Login</h2>
+            <form>
+                <input type="text" placeholder="Username">
+                <input type="password" placeholder="Password">
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
